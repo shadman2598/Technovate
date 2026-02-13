@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Technovate</title>
+  <meta name="description" content="Get in touch with Technovate for grant inquiries, partnership discussions, or general contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-spacer"></div>
+      <a href="index.html" class="logo">
+        <img src="assets/technovate_logo.png" alt="Technovate" class="logo-img" />
+        <span class="logo-text">Technovate</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="technology.html">Technology</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="impact.html">Impact</a>
+        <a href="grants.html">Grants</a>
+        <a href="contact.html" class="nav-cta active">Contact</a>
+      </nav>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header-immersive">
+      <div class="hero-viewport viewport" id="scene-contact"></div>
+      <div class="page-header-overlay">
+        <div class="container">
+          <p class="hero-eyebrow">Contact</p>
+          <h1 class="page-title">Let's start a conversation</h1>
+          <p class="page-lead">For grant inquiries, partnership discussions, pilot programs, or general contact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM + DETAILS -->
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-form-col">
+          <h2 class="section-title">Send us a message</h2>
+          <form class="form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="organization">Organization (optional)</label>
+              <input type="text" id="organization" name="organization" placeholder="Organization or agency name" />
+            </div>
+            <div class="form-group">
+              <label for="inquiry-type">Inquiry type</label>
+              <select id="inquiry-type" name="inquiry-type">
+                <option value="">Select one...</option>
+                <option value="grant">Grant inquiry</option>
+                <option value="partnership">Partnership discussion</option>
+                <option value="pilot">Pilot program</option>
+                <option value="general">General inquiry</option>
+                <option value="media">Media / press</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--fill">Send message</button>
+          </form>
+        </div>
+        <div class="contact-info-col">
+          <h2 class="section-title">Contact details</h2>
+          <div class="contact-details">
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:hello@technovate.io">hello@technovate.io</a>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <p>Toronto, Ontario, Canada</p>
+            </div>
+            <div>
+              <strong>Response time</strong>
+              <p>We typically respond within 1–2 business days.</p>
+            </div>
+          </div>
+
+          <div class="contact-reasons">
+            <h3>Common reasons to reach out</h3>
+            <ul class="check-list">
+              <li>You run a grant or funding program</li>
+              <li>You're exploring institutional technology partnerships</li>
+              <li>You want to discuss a pilot deployment</li>
+              <li>You're a researcher interested in collaboration</li>
+              <li>You'd like to learn more about our solutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="footer-logo"><img src="assets/technovate_logo.png" alt="Technovate" /></a>
+      <p><strong>Technovate</strong> — Technology and AI for health, wealth, and growth.</p>
+      <div class="footer-links">
+        <a href="about.html">About</a><a href="technology.html">Technology</a><a href="solutions.html">Solutions</a>
+        <a href="impact.html">Impact</a><a href="grants.html">Grants</a><a href="contact.html">Contact</a>
+      </div>
+      <small>&copy; <span id="year"></span> Technovate. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();})();
+    // Contact form
+    (function(){
+      var f=document.getElementById('contact-form');
+      if(!f)return;
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var b=f.querySelector('button[type="submit"]');
+        var t=b.textContent;
+        b.textContent='Sending…';b.disabled=true;
+        setTimeout(function(){b.textContent='Message sent';b.disabled=false;f.reset();
+          setTimeout(function(){b.textContent=t;},2000);
+        },600);
+      });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="three-scenes.js"></script>
+</body>
+</html>
