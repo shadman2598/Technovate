@@ -915,7 +915,7 @@
     }
 
     var cities=[
-      {lat:43.65,lon:-79.38,hq:true},
+      {lat:51.04,lon:-114.07,hq:true},
       {lat:51.51,lon:-0.13},
       {lat:35.68,lon:139.69},
       {lat:-33.87,lon:151.21},
@@ -933,7 +933,7 @@
       globe.add(d);
     });
 
-    /* Arcs from Toronto */
+    /* Arcs from Calgary */
     for(var ci=1;ci<cities.length;ci++){
       var v1=ll2v(cities[0].lat,cities[0].lon,R);
       var v2=ll2v(cities[ci].lat,cities[ci].lon,R);
